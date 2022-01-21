@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
     private float _enemySpeed = 2;
     [SerializeField]
     private int _enemyHealth = 8;
+
+    private Player _player;
     void Start()
     {
-        
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -27,12 +29,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         // enemy collide with player
         if (other.tag == "Player") {
             // get player script component
-            Player player_behaviour = other.transform.GetComponent<Player>();
-            if (player_behaviour != null) {
-                player_behaviour.damaged();
+            
+            if (_player != null) {
+                _player.damaged();
             }
             Destroy(this.gameObject);
         }
@@ -42,10 +45,14 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             this._enemyHealth--;
-            Debug.Log(this._enemyHealth); 
             if (this._enemyHealth < 1) {
                 Destroy(this.gameObject);
+                
+                Debug.Log("score");
+                _player.addScore(10);
+                
             }
+            
         }
     }
 }

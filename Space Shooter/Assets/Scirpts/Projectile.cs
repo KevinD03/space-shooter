@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     }
 
     void destoryProjectile() {
-        if (transform.position.y >= 7f)
+        if (transform.position.y >= 6.1f)
         {
             Destroy(this.gameObject);
         }

@@ -22,18 +22,4 @@ public class PowerShoot : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // powerShoot collide with player
-        if (other.tag == "Player")
-        {
-            // get player script component
-            Player player_behaviour = other.transform.GetComponent<Player>();
-            if (player_behaviour != null)
-            {
-                player_behaviour.changePowerShoot();
-            }
-            Destroy(this.gameObject);
-        }
-    }
 }
