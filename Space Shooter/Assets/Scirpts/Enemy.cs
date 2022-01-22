@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _enemySpeed = 2;
     [SerializeField]
-    private int _enemyHealth = 8;
+    private int _enemyHealth = 8; 
 
     private Player _player;
     void Start()
