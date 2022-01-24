@@ -867,6 +867,7 @@ MonoBehaviour:
   _playerHealh: 3
   _enemySpawnManager: {fileID: 483929816}
   _powerShoot: 0
+  _speedPowerUp: 0
   _score: 0
 --- !u!212 &1655032761
 SpriteRenderer:
@@ -1027,8 +1028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fe0d72df279564aaa50b28ad3a4c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerShootPrefabs: {fileID: 4640890072657787178, guid: 3f31fe172281045409bc86c8c5f5f6d2,
-    type: 3}
+  _powerUpPrefabs:
+  - {fileID: 4640890072657787178, guid: 3f31fe172281045409bc86c8c5f5f6d2, type: 3}
   _powerUpContainer: {fileID: 534868555}
 --- !u!4 &1699155491
 Transform:
@@ -1166,12 +1167,12 @@ PrefabInstance:
     - target: {fileID: 5823984337479885475, guid: 3f31fe172281045409bc86c8c5f5f6d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.93
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 5823984337479885475, guid: 3f31fe172281045409bc86c8c5f5f6d2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.16
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 5823984337479885475, guid: 3f31fe172281045409bc86c8c5f5f6d2,
         type: 3}
@@ -1215,3 +1216,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f31fe172281045409bc86c8c5f5f6d2, type: 3}
+--- !u!1001 &5616006104289838816
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423881473903387079, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115144971495061531, guid: e96c113a65cb669448d227ab4a1d9579,
+        type: 3}
+      propertyPath: m_Name
+      value: SpeedPowerUp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e96c113a65cb669448d227ab4a1d9579, type: 3}

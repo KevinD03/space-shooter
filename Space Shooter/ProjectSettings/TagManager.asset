@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - PowerShoot
+  - SpeedPowerUp
   layers:
   - Default
   - TransparentFX

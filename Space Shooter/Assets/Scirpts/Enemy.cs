@@ -13,7 +13,11 @@ public class Enemy : MonoBehaviour
     private Player _player;
     void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if (_player == null)
+        {
+            Debug.LogError("player is null");
+        }
     }
 
     // Update is called once per frame

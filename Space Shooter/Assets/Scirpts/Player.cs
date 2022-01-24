@@ -20,17 +20,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _playerHealh = 3;
 
-    [SerializeField]
-    private EnemySpawnMamger _enemySpawnManager;
-
-    private bool _resetPowerUp;
-
-    private float _powerShootTimer;
-
     private float _nextFire = 0f;
 
     [SerializeField]
-    private bool _powerShoot = false;
+    private EnemySpawnMamger _enemySpawnManager;
+
+
+    public bool resetPowerShoot;
+    public bool resetSpeedPowerUp;
+
+    public bool powerShoot = false;
+    public bool speedPowerUp = false;
+
 
     [SerializeField]
     private int _score;
@@ -80,6 +81,9 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        if (speedPowerUp == true) {
+            _playerSpeed = 25f;
+        }
         Vector2 move = playerInput.Player.Move.ReadValue<Vector2>();
 
         /*float xAxis_input = Input.GetAxis("Horizontal");
@@ -122,7 +126,7 @@ public class Player : MonoBehaviour
             Instantiate(_projectilePrefab, transform.position + new Vector3(-0.3f, 0.8f, 0), Quaternion.identity);
             Instantiate(_projectilePrefab, transform.position + new Vector3(0.3f, 0.8f, 0), Quaternion.identity);
 
-            if (_powerShoot == true) {
+            if (powerShoot == true) {
                 Instantiate(_projectilePrefab, transform.position + new Vector3(-0.78f, -0.44f, 0), Quaternion.identity);
                 Instantiate(_projectilePrefab, transform.position + new Vector3(0.78f, -0.44f, 0), Quaternion.identity);
             }
@@ -151,54 +155,8 @@ public class Player : MonoBehaviour
 
     public void addScore(int score) {
         _score += score;
-        Debug.Log(_score);
         _uiManager.updateScore(_score);
     }
-
-
-    IEnumerator OnTriggerEnter2D(Collider2D other)
-    {
-        //If the colliding object's tag is "PowerUp"
-        if (other.tag == "PowerShoot")
-        {
-            //If Power_Up is false, it means the powerup routine is not currently running
-            Destroy(other.gameObject);
-            if (!_powerShoot)
-            {
-                _powerShoot = true;
-                float duration = 5f;
-
-                //Takes a timeStamp
-                float timeStamp = Time.time;
-
-                //While the current time is less than the timeStamp + the duration of the power up
-                while (Time.time < timeStamp + duration)
-                {
-                    //If the flag to reset the powerup is active
-                    if (_resetPowerUp)
-                    {
-                        //Toggle it off
-                        _resetPowerUp = false;
-                        //reset the powerup so that it ends in (current time + 5 seconds);
-                        timeStamp = Time.time;
-                    }
-                    //Wait for next frame. Do that until the duration is over.
-
-                    yield return null;
-                }
-                //The current time is now greater or equal to the timeStamp + the duration
-                //This means the power up should be over
-                _powerShoot = false;
-            }
-            //Otherwise, it means that a different powerup routine is already running
-            //We're just going to let that other routine know that it should reset the timer
-            else
-            {
-                _resetPowerUp = true;
-            }
-        }
-    }
-
 }
 
 
